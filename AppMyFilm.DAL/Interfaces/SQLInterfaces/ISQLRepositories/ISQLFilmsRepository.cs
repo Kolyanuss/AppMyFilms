@@ -1,8 +1,8 @@
-﻿using SkillAppAdoDapperWebApi.DAL.Entities.SQLEntities;
+﻿using AppMyFilm.DAL.Entities.SQLEntities;
 using SkillManagement.DataAccess.Entities.SQLEntities;
 using SkillManagement.DataAccess.Interfaces;
 
-namespace SkillAppAdoDapperWebApi.DAL.Interfaces.SQLInterfaces.ISQLRepositories
+namespace AppMyFilm.DAL.Interfaces.SQLInterfaces.ISQLRepositories
 {
     public interface ISQLFilmsRepository : IGenericRepository<SQLFilms, long>
     {

@@ -1,7 +1,7 @@
 ﻿using Microsoft.OData.Edm;
 using SkillManagement.DataAccess.Interfaces;
 
-namespace SkillAppAdoDapperWebApi.DAL.Entities.SQLEntities
+namespace AppMyFilm.DAL.Entities.SQLEntities
 {
     public class SQLFilms : IEntity<long>
     {

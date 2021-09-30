@@ -11,8 +11,8 @@ namespace SkillManagement.DataAccess.Services.SQL_Services
 {
     public class SQLEmployeeSkillService : ISQLEmployeeSkillService
     {
-        ISQLunitOfWork _SqlsqlunitOfWork;
-        public SQLEmployeeSkillService(ISQLunitOfWork sqlsqlunitOfWork)
+        ISQLUnitOfWork _SqlsqlunitOfWork;
+        public SQLEmployeeSkillService(ISQLUnitOfWork sqlsqlunitOfWork)
         {
             _SqlsqlunitOfWork = sqlsqlunitOfWork;
         }

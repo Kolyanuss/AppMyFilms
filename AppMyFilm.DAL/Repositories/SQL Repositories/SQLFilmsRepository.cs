@@ -4,7 +4,7 @@ using SkillManagement.DataAccess.Entities.SQLEntities;
 using SkillManagement.DataAccess.Interfaces.SQLInterfaces.ISQLRepositories;
 using SkillManagement.DataAccess.Interfaces;
 
-namespace SkillAppAdoDapperWebApi.DAL.Repositories.SQL_Repositories
+namespace AppMyFilm.DAL.Repositories.SQL_Repositories
 {
     public class SQLFilmsRepository : GenericRepository<SQLEmployee, long>, ISQLEmployeeRepository
     {

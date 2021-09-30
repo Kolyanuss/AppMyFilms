@@ -1,25 +1,29 @@
-﻿using SkillManagement.DataAccess.Interfaces;
+﻿using AppMyFilm.DAL.Interfaces.SQLInterfaces.ISQLRepositories;
+using SkillManagement.DataAccess.Interfaces;
 using SkillManagement.DataAccess.Interfaces.SQLInterfaces.ISQLRepositories;
 using System;
 
 namespace SkillManagement.DataAccess.sqlunitOfWork
 {
-    public class SQLsqlunitOfWork : ISQLunitOfWork
+    public class SQLsqlunitOfWork : ISQLUnitOfWork
     {
         private readonly ISQLEmployeeRepository _sqlEmployeeRepository;
         private readonly ISQLEmployeeSkillRepository _sqlEmployeeSkillRepository;
         private readonly ISQLSkillRepository _sqlSkillRepository;
         private readonly ISQLScoreRepository _sqlScoreRepository;
+        private readonly ISQLFilmsRepository _sqlFilmsRepository;
         
         public SQLsqlunitOfWork(ISQLEmployeeRepository sqlEmployeeRepository,
             ISQLEmployeeSkillRepository sqlEmployeeSkillRepository,
             ISQLSkillRepository sqlSkillRepository,
-            ISQLScoreRepository sqlScoreRepository)
+            ISQLScoreRepository sqlScoreRepository,
+            ISQLFilmsRepository sqlFilmsRepository)
         {
             _sqlEmployeeRepository = sqlEmployeeRepository;
             _sqlEmployeeSkillRepository = sqlEmployeeSkillRepository;
             _sqlSkillRepository = sqlSkillRepository;
             _sqlScoreRepository = sqlScoreRepository;
+            _sqlFilmsRepository = sqlFilmsRepository;
         }
         public ISQLEmployeeRepository SQLEmployeeRepository
         {
@@ -50,6 +54,14 @@ namespace SkillManagement.DataAccess.sqlunitOfWork
             get
             {
                 return _sqlScoreRepository;
+            }
+        }
+
+        public ISQLFilmsRepository SQLFilmsRepository
+        {
+            get
+            {
+                return _sqlFilmsRepository;
             }
         }
 

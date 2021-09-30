@@ -51,7 +51,7 @@ namespace AppMyFilm
             services.AddTransient<ISQLEmployeeSkillService, SQLEmployeeSkillService>();
             #endregion
 
-            services.AddTransient<ISQLunitOfWork, SQLsqlunitOfWork>();
+            services.AddTransient<ISQLUnitOfWork, SQLsqlunitOfWork>();
 
             services.AddTransient<IConnectionFactory, ConnectionFactory>();
 
@@ -64,19 +64,18 @@ namespace AppMyFilm
                 c.SwaggerDoc("v1", new OpenApiInfo
                 {
                     Version = "v1",
-                    Title = "SKILL API",
+                    Title = "Films API",
                     Description = "A simple example ASP.NET Core Web API",
-                    TermsOfService = new Uri("https://example.com/terms"),
+                    TermsOfService = new Uri("https://github.com/Kolyanuss"),
                     Contact = new OpenApiContact
                     {
                         Name = "STEP Student",
                         Email = string.Empty,
-                        Url = new Uri("https://twitter.com/step"),
+                        Url = new Uri("https://github.com/Kolyanuss"),
                     },
                     License = new OpenApiLicense
                     {
                         Name = "Use under LICX",
-                        Url = new Uri("https://example.com/license"),
                     }
                 });
             });
