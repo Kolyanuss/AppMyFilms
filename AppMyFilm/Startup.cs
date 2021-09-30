@@ -2,6 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AppMyFilm.DAL.Interfaces.SQLInterfaces.ISQLRepositories;
+using AppMyFilm.DAL.Interfaces.SQLInterfaces.ISQLServices;
+using AppMyFilm.DAL.Repositories.SQL_Repositories;
+using AppMyFilm.DAL.Services.SQL_Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -42,6 +46,7 @@ namespace AppMyFilm
             services.AddTransient<ISQLSkillRepository, SQLSkillRepository>();
             services.AddTransient<ISQLScoreRepository, SQLScoreRepository>();
             services.AddTransient<ISQLEmployeeSkillRepository, SQLEmployeeSkillRepository>();
+            services.AddTransient<ISQLFilmsRepository, SQLFilmsRepository>();
             #endregion
 
             #region SQL services
@@ -49,6 +54,7 @@ namespace AppMyFilm
             services.AddTransient<ISQLSkillService, SQLSkillService>();
             services.AddTransient<ISQLScoreService, SQLScoreService>();
             services.AddTransient<ISQLEmployeeSkillService, SQLEmployeeSkillService>();
+            services.AddTransient<ISQLFilmsService, SQLFilmsService>();
             #endregion
 
             services.AddTransient<ISQLUnitOfWork, SQLsqlunitOfWork>();
