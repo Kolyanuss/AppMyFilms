@@ -17,7 +17,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "SkillAppAdoDapperWebApi": {
+    "AppMyFilm": {
       "commandName": "Project",
       "launchBrowser": true,
       "launchUrl": "weatherforecast",
