@@ -1,6 +1,6 @@
 using System;
 
-namespace SkillAppAdoDapperWebApi
+namespace AppMyFilm
 {
     public class WeatherForecast
     {

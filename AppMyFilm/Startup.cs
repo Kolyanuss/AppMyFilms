@@ -21,7 +21,7 @@ using SkillManagement.DataAccess.Services;
 using SkillManagement.DataAccess.Services.SQL_Services;
 using SkillManagement.DataAccess.sqlunitOfWork;
 
-namespace SkillAppAdoDapperWebApi
+namespace AppMyFilm
 {
     public class Startup
     {

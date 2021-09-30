@@ -5,4 +5,4 @@ services:
     image: ${DOCKER_REGISTRY-}skillappadodapperwebapiwebapi
     build:
       context: .
-      dockerfile: SkillAppAdoDapperWebApi/Dockerfile
+      dockerfile: AppMyFilm/Dockerfile
