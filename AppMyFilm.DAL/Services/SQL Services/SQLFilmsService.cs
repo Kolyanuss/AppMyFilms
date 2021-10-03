@@ -1,9 +1,7 @@
 ﻿using AppMyFilm.DAL.Entities.SQLEntities;
 using AppMyFilm.DAL.Interfaces.SQLInterfaces.ISQLServices;
 using SkillManagement.DataAccess.Interfaces;
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace AppMyFilm.DAL.Services.SQL_Services
 {
@@ -23,22 +21,22 @@ namespace AppMyFilm.DAL.Services.SQL_Services
 
         public void DeleteFilm(SQLFilms film)
         {
-            throw new NotImplementedException();
+            _SqlsqlUnitOfWork.SQLFilmsRepository.Delete(film);
         }
 
         public IEnumerable<SQLFilms> GetAllFilms()
         {
-            throw new NotImplementedException();
+            return _SqlsqlUnitOfWork.SQLFilmsRepository.GetAll();
         }
 
         public SQLFilms GetFilmById(long Id)
         {
-            throw new NotImplementedException();
+            return _SqlsqlUnitOfWork.SQLFilmsRepository.Get(Id);
         }
 
         public void UpdateFilm(SQLFilms film)
         {
-            throw new NotImplementedException();
+            _SqlsqlUnitOfWork.SQLFilmsRepository.Update(film);
         }
     }
 }

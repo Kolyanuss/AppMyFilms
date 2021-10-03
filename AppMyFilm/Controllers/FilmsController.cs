@@ -5,6 +5,8 @@ using System.Collections.Generic;
 
 namespace AppMyFilm.WEBAPI.Controllers
 {
+    [Route("api/[controller]")]
+
     public class FilmsController
     {
         #region Propertirs
@@ -12,9 +14,9 @@ namespace AppMyFilm.WEBAPI.Controllers
         #endregion
 
         #region Constructors
-        public FilmsController(ISQLFilmsService sqlEmployeeService)
+        public FilmsController(ISQLFilmsService sqlFilmsService)
         {
-            _sqlFilmsService = sqlEmployeeService;
+            _sqlFilmsService = sqlFilmsService;
         }
         #endregion
 
@@ -38,25 +40,25 @@ namespace AppMyFilm.WEBAPI.Controllers
         // POST: Add new employee
         [Route("Films")]
         [HttpPost]
-        public long Post([FromBody] SQLFilms employee)
+        public long Post([FromBody] SQLFilms film)
         {
-            return _sqlFilmsService.AddFilm(employee);
+            return _sqlFilmsService.AddFilm(film);
         }
 
         // PUT: Update existing employee
         [Route("Films/{id?}")]
         [HttpPut]
-        public void Put([FromBody] SQLFilms employee)
+        public void Put([FromBody] SQLFilms film)
         {
-            _sqlFilmsService.UpdateFilm(employee);
+            _sqlFilmsService.UpdateFilm(film);
         }
 
         // DELETE: Delete existing employee
         [Route("Films/{id?}")]
         [HttpDelete]
-        public void Delete([FromBody] SQLFilms employee)
+        public void Delete([FromBody] SQLFilms film)
         {
-            _sqlFilmsService.DeleteFilm(employee);
+            _sqlFilmsService.DeleteFilm(film);
         }
         #endregion
     }
