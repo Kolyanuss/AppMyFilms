@@ -75,5 +75,8 @@
     <Build Include="dbo\Stored_Procedures\SP_InsertRecordToTable.sql" />
     <Build Include="dbo\Stored_Procedures\SP_UnActivateRecordInTable.sql" />
     <Build Include="dbo\Stored_Procedures\SP_UpdateRecordInTable.sql" />
+    <Build Include="Films.sql" />
+    <Build Include="Users.sql" />
+    <Build Include="ListFilms.sql" />
   </ItemGroup>
 </Project>

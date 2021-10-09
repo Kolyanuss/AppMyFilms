@@ -10,7 +10,9 @@ namespace AppMyFilm.DAL.Interfaces.SQLInterfaces.ISQLServices
         void UpdateFilm(SQLFilms film);
 
         void DeleteFilm(SQLFilms film);
+
         SQLFilms GetFilmById(long Id);
+
         IEnumerable<SQLFilms> GetAllFilms();
     }
 }

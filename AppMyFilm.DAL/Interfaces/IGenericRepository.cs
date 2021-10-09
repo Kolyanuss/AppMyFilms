@@ -1,8 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using AppMyFilm.DAL.Interfaces.EntityInterfaces;
+using System.Collections.Generic;
 
 namespace SkillManagement.DataAccess.Interfaces
 {
-    public interface IGenericRepository<TEntity, TId> where TEntity : IEntity<TId>
+    public interface IGenericRepository<TEntity, TId> where TEntity : IClearEntity
     {
         IEnumerable<TEntity> GetAll();
 

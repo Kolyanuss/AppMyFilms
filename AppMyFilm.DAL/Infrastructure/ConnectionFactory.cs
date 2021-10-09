@@ -21,7 +21,7 @@ namespace SkillManagement.DataAccess.Infrastructure
         {
             _connectionString = connectionString;
         }
-        
+
         public IDbConnection GetSqlConnection
         {
             get
@@ -34,6 +34,21 @@ namespace SkillManagement.DataAccess.Infrastructure
                     connection = new SqlConnection(_configuration.GetConnectionString("DefaultConnection2"));
 
                 connection.Open();
+
+                return connection;
+            }
+        }
+
+        public IDbConnection GetSqlAsyncConnection
+        {
+            get
+            {
+                SqlConnection connection;
+
+                if (!string.IsNullOrEmpty(_connectionString))
+                    connection = new SqlConnection(_connectionString);
+                else
+                    connection = new SqlConnection(_configuration.GetConnectionString("DefaultConnection2"));
 
                 return connection;
             }
