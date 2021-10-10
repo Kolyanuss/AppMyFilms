@@ -1,22 +1,23 @@
 ﻿using AppMyFilm.DAL.Entities.SQLEntities;
-using System;
 using System.Collections.Generic;
-using System.Text;
+using System.Threading.Tasks;
 
 namespace AppMyFilm.DAL.Interfaces.SQLInterfaces.ISQLServices
 {
     public interface ISQLListFilmsService
     {
-        long AddFilm(SQLListFilms listFilm);
+        long AddListFilm(SQLListFilms listFilm);
 
-        void UpdateFilm(SQLListFilms listFilm);
+        void UpdateListFilm(SQLListFilms listFilm);
 
-        void DeleteFilm(SQLListFilms listFilm);
+        void DeleteListFilm(SQLListFilms listFilm);
 
-        SQLListFilms GetFilmById(long Id);
+        IAsyncEnumerable<SQLListFilms> GetListFilmByIdFilm(long Id);
 
-        IEnumerable<SQLListFilms> GetAllFilms();
+        IAsyncEnumerable<SQLListFilms> GetListFilmByIdUser(long Id);
 
-        IEnumerable<SQLListFilms> GetFilmsJoinUser();
+        IAsyncEnumerable<SQLListFilms> GetAllListFilms();
+
+        IAsyncEnumerable<SQLListFilmsStr> GetListFilmsJoinUser();
     }
 }

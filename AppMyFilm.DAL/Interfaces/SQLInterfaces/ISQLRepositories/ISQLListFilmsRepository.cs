@@ -1,6 +1,7 @@
 ﻿using AppMyFilm.DAL.Entities.SQLEntities;
 using SkillManagement.DataAccess.Interfaces;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace AppMyFilm.DAL.Interfaces.SQLInterfaces.ISQLRepositories
 {
@@ -8,7 +9,9 @@ namespace AppMyFilm.DAL.Interfaces.SQLInterfaces.ISQLRepositories
     {
         IAsyncEnumerable<SQLListFilms> GetAll();
 
-        SQLListFilms Get(long Id);
+        IAsyncEnumerable<SQLListFilms> GetByIdFilms(long Id);
+
+        IAsyncEnumerable<SQLListFilms> GetByIdUsers(long Id);
 
         long Add(SQLListFilms entity);
 
@@ -16,6 +19,6 @@ namespace AppMyFilm.DAL.Interfaces.SQLInterfaces.ISQLRepositories
 
         void Delete(SQLListFilms entity);
 
-        IEnumerable<SQLListFilms> GetFilmsJoinUser();
+        IAsyncEnumerable<SQLListFilmsStr> GetFilmsJoinUser();
     }
 }

@@ -12,7 +12,7 @@
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,
-      "launchUrl": "api/films/films",
+      "launchUrl": "api/ListFilmsJoin/ListFilmsJoin",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }

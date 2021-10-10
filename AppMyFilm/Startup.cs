@@ -1,19 +1,13 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using AppMyFilm.DAL.Interfaces.SQLInterfaces.ISQLRepositories;
 using AppMyFilm.DAL.Interfaces.SQLInterfaces.ISQLServices;
 using AppMyFilm.DAL.Repositories.SQL_Repositories;
 using AppMyFilm.DAL.Services.SQL_Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using SkillManagement.DataAccess.Infrastructure;
 using SkillManagement.DataAccess.Interfaces;
@@ -47,6 +41,7 @@ namespace AppMyFilm
             services.AddTransient<ISQLScoreRepository, SQLScoreRepository>();
             services.AddTransient<ISQLEmployeeSkillRepository, SQLEmployeeSkillRepository>();
             services.AddTransient<ISQLFilmsRepository, SQLFilmsRepository>();
+            services.AddTransient<ISQLListFilmsRepository, SQLListFilmsRepository>();
             #endregion
 
             #region SQL services
@@ -55,6 +50,7 @@ namespace AppMyFilm
             services.AddTransient<ISQLScoreService, SQLScoreService>();
             services.AddTransient<ISQLEmployeeSkillService, SQLEmployeeSkillService>();
             services.AddTransient<ISQLFilmsService, SQLFilmsService>();
+            services.AddTransient<ISQLListFilmsService, SQLListFilmsService>();
             #endregion
 
             services.AddTransient<ISQLUnitOfWork, SQLsqlunitOfWork>();

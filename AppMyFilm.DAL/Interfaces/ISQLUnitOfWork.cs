@@ -10,6 +10,7 @@ namespace SkillManagement.DataAccess.Interfaces
         ISQLSkillRepository SQLSkillRepository { get; }
         ISQLScoreRepository SQLScoreRepository { get; }
         ISQLFilmsRepository SQLFilmsRepository { get; }
+        ISQLListFilmsRepository SQLListFilmsRepository { get; }
 
         void Complete();
     }
