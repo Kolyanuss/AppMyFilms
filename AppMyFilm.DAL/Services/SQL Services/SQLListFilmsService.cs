@@ -15,7 +15,7 @@ namespace AppMyFilm.DAL.Services.SQL_Services
             _SqlsqlUnitOfWork = sqlSqlUnitOfWork;
         }
 
-        public long AddListFilm(SQLListFilms listFilm)
+        public Task<long> AddListFilm(SQLListFilms listFilm)
         {
             return _SqlsqlUnitOfWork.SQLListFilmsRepository.Add(listFilm);
         }

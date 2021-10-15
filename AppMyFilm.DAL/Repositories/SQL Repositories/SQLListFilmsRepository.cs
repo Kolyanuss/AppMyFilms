@@ -40,7 +40,6 @@ namespace AppMyFilm.DAL.Repositories.SQL_Repositories
                 }
                 reader.Close();
             }
-            //return rez;
             yield break;
         }
 
@@ -60,7 +59,7 @@ namespace AppMyFilm.DAL.Repositories.SQL_Repositories
             return Get("SELECT * FROM " + _tableName + " WHERE IdUser=" + Id);
         }
 
-        public async IAsyncEnumerable<SQLListFilmsStr> GetFilmsJoinUser() //create new entity
+        public async IAsyncEnumerable<SQLListFilmsStr> GetFilmsJoinUser()
         {
             string sqlExpression = @"
             SELECT DISTINCT UserName, NameFilm FROM 
@@ -71,7 +70,6 @@ namespace AppMyFilm.DAL.Repositories.SQL_Repositories
 		    ORDER BY UserName
             ";
             
-
             using (SqlConnection connection = (SqlConnection)_connectionFactory.GetSqlAsyncConnection)
             {
                 await connection.OpenAsync();
@@ -89,24 +87,55 @@ namespace AppMyFilm.DAL.Repositories.SQL_Repositories
                 }
                 reader.Close();
             }
-            //return rez;
             yield break;
 
         }
 
-        public long Add(SQLListFilms entity)
+        public async Task<long> Add(SQLListFilms entity)
         {
-            throw new System.NotImplementedException();
+            string sqlExpression = string.Format(
+                "INSERT INTO {0} (IdFilms, IdUser) VALUES ({1},{2})",
+                _tableName, entity.IdFilms, entity.IdUser);
+
+            using (SqlConnection connection = (SqlConnection)_connectionFactory.GetSqlAsyncConnection)
+            {
+                await connection.OpenAsync();
+                SqlCommand command = new SqlCommand(sqlExpression, connection);
+                long num = await command.ExecuteNonQueryAsync();
+                return num;
+            }
         }
 
-        public void Update(SQLListFilms entity)
+        public async void Update(SQLListFilms entity)
         {
-            throw new System.NotImplementedException();
+            string sqlExpression = string.Format(@"
+            UPDATE {0} SET IdFilms={1}
+            WHERE IdUser={2}
+            LIMIT 1
+            ", _tableName, entity.IdFilms, entity.IdUser);
+
+            using (SqlConnection connection = (SqlConnection)_connectionFactory.GetSqlAsyncConnection)
+            {
+                await connection.OpenAsync();
+                SqlCommand command = new SqlCommand(sqlExpression, connection);
+                await command.ExecuteNonQueryAsync();
+            }
         }
 
-        public void Delete(SQLListFilms entity)
+        public async void Delete(SQLListFilms entity)
         {
-            throw new System.NotImplementedException();
+            string sqlExpression = string.Format(@"
+            DELETE * FROM {0}
+            WHERE IdFilms={1} && IdUser={2}
+            LIMIT 1
+            ", _tableName, entity.IdFilms, entity.IdUser);
+
+            using (SqlConnection connection = (SqlConnection)_connectionFactory.GetSqlAsyncConnection)
+            {
+                await connection.OpenAsync();
+                SqlCommand command = new SqlCommand(sqlExpression, connection);
+                await command.ExecuteNonQueryAsync();
+            }
         }
     }
 }

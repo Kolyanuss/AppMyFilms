@@ -51,7 +51,7 @@ namespace AppMyFilm.WEBAPI.Controllers
 
         [Route("ListFilms")]
         [HttpPost]
-        public long Post([FromBody] SQLListFilms listFilm)
+        public Task<long> Post([FromBody] SQLListFilms listFilm)
         {
             return _sqlListFilmsService.AddListFilm(listFilm);
         }

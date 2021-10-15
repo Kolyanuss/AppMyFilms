@@ -13,7 +13,7 @@ namespace AppMyFilm.DAL.Interfaces.SQLInterfaces.ISQLRepositories
 
         IAsyncEnumerable<SQLListFilms> GetByIdUsers(long Id);
 
-        long Add(SQLListFilms entity);
+        Task<long> Add(SQLListFilms entity);
 
         void Update(SQLListFilms entity);
 

@@ -6,7 +6,7 @@ namespace AppMyFilm.DAL.Interfaces.SQLInterfaces.ISQLServices
 {
     public interface ISQLListFilmsService
     {
-        long AddListFilm(SQLListFilms listFilm);
+        Task<long> AddListFilm(SQLListFilms listFilm);
 
         void UpdateListFilm(SQLListFilms listFilm);
 
