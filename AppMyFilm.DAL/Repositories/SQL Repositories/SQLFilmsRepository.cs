@@ -3,6 +3,8 @@ using SkillManagement.DataAccess.Core;
 using SkillManagement.DataAccess.Interfaces;
 using AppMyFilm.DAL.Interfaces.SQLInterfaces.ISQLRepositories;
 using AppMyFilm.DAL.Entities.SQLEntities;
+using System.Collections.Generic;
+using Dapper;
 
 namespace AppMyFilm.DAL.Repositories.SQL_Repositories
 {
@@ -15,5 +17,20 @@ namespace AppMyFilm.DAL.Repositories.SQL_Repositories
             var connectionString = config.GetConnectionString("DefaultConnection2");
             connectionFactory.SetConnection(connectionString);
         }
+
+        public IEnumerable<SQLFilms> GetPopularFilms()
+        {
+            string sqlExpression = @"
+            SELECT [Id],[NameFilm],[ReleaseData],[Country],[DescriptionId] 
+                FROM ListFilms RIGHT JOIN Films ON ListFilms.IdFilms = Films.Id  
+            WHERE ListFilms.IdFilms IS NULL
+            ";
+
+            using (var db = _connectionFactory.GetSqlConnection)
+            {
+                return db.Query<SQLFilms>(sqlExpression);
+            }
+        }
+
     }
 }

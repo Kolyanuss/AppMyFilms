@@ -21,7 +21,6 @@ namespace AppMyFilm.WEBAPI.Controllers
         #endregion
 
         #region APIs
-        // GET: Get all employees
         [Route("Films")]
         [HttpGet]
         public IEnumerable<SQLFilms> Get()
@@ -29,7 +28,13 @@ namespace AppMyFilm.WEBAPI.Controllers
             return _sqlFilmsService.GetAllFilms();
         }
 
-        // GET: Get employee by id
+        [Route("FilmsPop")]
+        [HttpGet]
+        public IEnumerable<SQLFilms> GetPopularFilms()
+        {
+            return _sqlFilmsService.GetPopularFilms();
+        }
+
         [Route("Films/{Id}")]
         [HttpGet]
         public SQLFilms Get(long Id)
@@ -37,7 +42,6 @@ namespace AppMyFilm.WEBAPI.Controllers
             return _sqlFilmsService.GetFilmById(Id);
         }
 
-        // POST: Add new employee
         [Route("Films")]
         [HttpPost]
         public long Post([FromBody] SQLFilms film)
@@ -45,7 +49,6 @@ namespace AppMyFilm.WEBAPI.Controllers
             return _sqlFilmsService.AddFilm(film);
         }
 
-        // PUT: Update existing employee
         [Route("Films/{id?}")]
         [HttpPut]
         public void Put([FromBody] SQLFilms film)
@@ -53,7 +56,6 @@ namespace AppMyFilm.WEBAPI.Controllers
             _sqlFilmsService.UpdateFilm(film);
         }
 
-        // DELETE: Delete existing employee
         [Route("Films/{id?}")]
         [HttpDelete]
         public void Delete([FromBody] SQLFilms film)

@@ -14,5 +14,7 @@ namespace AppMyFilm.DAL.Interfaces.SQLInterfaces.ISQLServices
         SQLFilms GetFilmById(long Id);
 
         IEnumerable<SQLFilms> GetAllFilms();
+
+        IEnumerable<SQLFilms> GetPopularFilms();
     }
 }
