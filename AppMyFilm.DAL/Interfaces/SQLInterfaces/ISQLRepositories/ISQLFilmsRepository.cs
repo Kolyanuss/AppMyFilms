@@ -7,6 +7,6 @@ namespace AppMyFilm.DAL.Interfaces.SQLInterfaces.ISQLRepositories
 {
     public interface ISQLFilmsRepository : IGenericRepository<SQLFilms, long>
     {
-        IEnumerable<SQLFilms> GetPopularFilms();
+        IEnumerable<SQLFilms> GetNotPopularFilms();
     }
 }

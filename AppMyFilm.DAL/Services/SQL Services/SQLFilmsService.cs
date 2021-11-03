@@ -34,9 +34,9 @@ namespace AppMyFilm.DAL.Services.SQL_Services
             return _SqlsqlUnitOfWork.SQLFilmsRepository.Get(Id);
         }
 
-        public IEnumerable<SQLFilms> GetPopularFilms()
+        public IEnumerable<SQLFilms> GetNotPopularFilms()
         {
-            return _SqlsqlUnitOfWork.SQLFilmsRepository.GetPopularFilms();
+            return _SqlsqlUnitOfWork.SQLFilmsRepository.GetNotPopularFilms();
         }
 
         public void UpdateFilm(SQLFilms film)

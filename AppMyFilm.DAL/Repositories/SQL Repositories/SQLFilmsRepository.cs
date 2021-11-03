@@ -18,7 +18,7 @@ namespace AppMyFilm.DAL.Repositories.SQL_Repositories
             connectionFactory.SetConnection(connectionString);
         }
 
-        public IEnumerable<SQLFilms> GetPopularFilms()
+        public IEnumerable<SQLFilms> GetNotPopularFilms()
         {
             string sqlExpression = @"
             SELECT [Id],[NameFilm],[ReleaseData],[Country],[DescriptionId] 

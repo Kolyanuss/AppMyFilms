@@ -15,6 +15,6 @@ namespace AppMyFilm.DAL.Interfaces.SQLInterfaces.ISQLServices
 
         IEnumerable<SQLFilms> GetAllFilms();
 
-        IEnumerable<SQLFilms> GetPopularFilms();
+        IEnumerable<SQLFilms> GetNotPopularFilms();
     }
 }

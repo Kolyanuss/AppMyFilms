@@ -30,9 +30,9 @@ namespace AppMyFilm.WEBAPI.Controllers
 
         [Route("FilmsPop")]
         [HttpGet]
-        public IEnumerable<SQLFilms> GetPopularFilms()
+        public IEnumerable<SQLFilms> GetNotPopularFilms()
         {
-            return _sqlFilmsService.GetPopularFilms();
+            return _sqlFilmsService.GetNotPopularFilms();
         }
 
         [Route("Films/{Id}")]
