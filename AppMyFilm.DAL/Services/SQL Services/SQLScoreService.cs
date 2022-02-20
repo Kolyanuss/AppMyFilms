@@ -10,8 +10,8 @@ namespace SkillManagement.DataAccess.Services
 {
     public class SQLScoreService : ISQLScoreService
     {
-        ISQLunitOfWork _SqlsqlunitOfWork;
-        public SQLScoreService(ISQLunitOfWork sqlunitOfWork)
+        ISQLUnitOfWork _SqlsqlunitOfWork;
+        public SQLScoreService(ISQLUnitOfWork sqlunitOfWork)
         {
             _SqlsqlunitOfWork = sqlunitOfWork;
         }

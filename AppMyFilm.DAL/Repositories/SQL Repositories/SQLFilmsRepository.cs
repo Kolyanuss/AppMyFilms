@@ -1,12 +1,14 @@
 ﻿using Microsoft.Extensions.Configuration;
 using SkillManagement.DataAccess.Core;
-using SkillManagement.DataAccess.Entities.SQLEntities;
-using SkillManagement.DataAccess.Interfaces.SQLInterfaces.ISQLRepositories;
 using SkillManagement.DataAccess.Interfaces;
+using AppMyFilm.DAL.Interfaces.SQLInterfaces.ISQLRepositories;
+using AppMyFilm.DAL.Entities.SQLEntities;
+using System.Collections.Generic;
+using Dapper;
 
-namespace SkillAppAdoDapperWebApi.DAL.Repositories.SQL_Repositories
+namespace AppMyFilm.DAL.Repositories.SQL_Repositories
 {
-    public class SQLFilmsRepository : GenericRepository<SQLEmployee, long>, ISQLEmployeeRepository
+    public class SQLFilmsRepository : GenericRepository<SQLFilms, long>, ISQLFilmsRepository
     {
         private static readonly string _tableName = "Films";
         private static readonly bool _isSoftDelete = true;
@@ -15,5 +17,20 @@ namespace SkillAppAdoDapperWebApi.DAL.Repositories.SQL_Repositories
             var connectionString = config.GetConnectionString("DefaultConnection2");
             connectionFactory.SetConnection(connectionString);
         }
+
+        public IEnumerable<SQLFilms> GetNotPopularFilms()
+        {
+            string sqlExpression = @"
+            SELECT [Id],[NameFilm],[ReleaseData],[Country],[DescriptionId] 
+                FROM ListFilms RIGHT JOIN Films ON ListFilms.IdFilms = Films.Id  
+            WHERE ListFilms.IdFilms IS NULL
+            ";
+
+            using (var db = _connectionFactory.GetSqlConnection)
+            {
+                return db.Query<SQLFilms>(sqlExpression);
+            }
+        }
+
     }
 }

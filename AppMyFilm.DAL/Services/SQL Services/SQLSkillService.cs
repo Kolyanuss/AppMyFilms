@@ -10,8 +10,8 @@ namespace SkillManagement.DataAccess.Services
 {
     public class SQLSkillService : ISQLSkillService
     {
-        ISQLunitOfWork _sqlunitOfWork;
-        public SQLSkillService(ISQLunitOfWork sqlunitOfWork)
+        ISQLUnitOfWork _sqlunitOfWork;
+        public SQLSkillService(ISQLUnitOfWork sqlunitOfWork)
         {
             _sqlunitOfWork = sqlunitOfWork;
         }

@@ -1,15 +1,13 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using AppMyFilm.DAL.Interfaces.SQLInterfaces.ISQLRepositories;
+using AppMyFilm.DAL.Interfaces.SQLInterfaces.ISQLServices;
+using AppMyFilm.DAL.Repositories.SQL_Repositories;
+using AppMyFilm.DAL.Services.SQL_Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using SkillManagement.DataAccess.Infrastructure;
 using SkillManagement.DataAccess.Interfaces;
@@ -42,6 +40,8 @@ namespace AppMyFilm
             services.AddTransient<ISQLSkillRepository, SQLSkillRepository>();
             services.AddTransient<ISQLScoreRepository, SQLScoreRepository>();
             services.AddTransient<ISQLEmployeeSkillRepository, SQLEmployeeSkillRepository>();
+            services.AddTransient<ISQLFilmsRepository, SQLFilmsRepository>();
+            services.AddTransient<ISQLListFilmsRepository, SQLListFilmsRepository>();
             #endregion
 
             #region SQL services
@@ -49,9 +49,11 @@ namespace AppMyFilm
             services.AddTransient<ISQLSkillService, SQLSkillService>();
             services.AddTransient<ISQLScoreService, SQLScoreService>();
             services.AddTransient<ISQLEmployeeSkillService, SQLEmployeeSkillService>();
+            services.AddTransient<ISQLFilmsService, SQLFilmsService>();
+            services.AddTransient<ISQLListFilmsService, SQLListFilmsService>();
             #endregion
 
-            services.AddTransient<ISQLunitOfWork, SQLsqlunitOfWork>();
+            services.AddTransient<ISQLUnitOfWork, SQLsqlunitOfWork>();
 
             services.AddTransient<IConnectionFactory, ConnectionFactory>();
 
@@ -64,19 +66,18 @@ namespace AppMyFilm
                 c.SwaggerDoc("v1", new OpenApiInfo
                 {
                     Version = "v1",
-                    Title = "SKILL API",
+                    Title = "Films API",
                     Description = "A simple example ASP.NET Core Web API",
-                    TermsOfService = new Uri("https://example.com/terms"),
+                    TermsOfService = new Uri("https://github.com/Kolyanuss"),
                     Contact = new OpenApiContact
                     {
                         Name = "STEP Student",
                         Email = string.Empty,
-                        Url = new Uri("https://twitter.com/step"),
+                        Url = new Uri("https://github.com/Kolyanuss"),
                     },
                     License = new OpenApiLicense
                     {
                         Name = "Use under LICX",
-                        Url = new Uri("https://example.com/license"),
                     }
                 });
             });
